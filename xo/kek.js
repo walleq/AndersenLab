@@ -22,7 +22,7 @@ const setSecondScore = newSecondScore => {
   localStorage.setItem("secondScore", secondScore);
 };
 
-document.getElementById("area").innerHTML = areaInner;
+area.innerHTML = areaInner;
 
 score.innerText = `Счёт - ${firstScore}:${secondScore}`;
 
@@ -31,7 +31,7 @@ const clearFields = () => {
     winner[i].innerHTML = "";
   }
 
-  localStorage.setItem("area", area.innerHTML);
+  localStorage.setItem("field", area.innerHTML);
   step.innerText = "Ходит первый игрок";
   setMove(0);
 };
@@ -44,23 +44,20 @@ const reset = () => {
 };
 
 area.addEventListener("click", function(event) {
-  if (move % 2 === 0) {
-    event.target.innerHTML = "X";
-  } else {
-    event.target.innerHTML = "0";
-  }
+  const temp =  move % 2 === 0;
+
+  event.target.innerHTML = temp ? "X" : "0"; // вынести в функцю
+  step.innerText = temp ? "Ходит первый игрок" : "Ходит второй игрок"; // вынести в функцю
 
   setMove(move + 1);
 
-  if (move % 2 === 0) {
-    step.innerText = "Ходит первый игрок";
-  } else {
-    step.innerText = "Ходит второй игрок";
-  }
-
-  localStorage.setItem("area", area.innerHTML);
+  localStorage.setItem("field", area.innerHTML);
 
   checkWinner();
+});
+
+area.addEventListener("click", function(event) {
+ alert('3123');
 });
 
 function checkWinner() {
