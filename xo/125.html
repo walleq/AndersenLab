@@ -8,43 +8,22 @@
 </head>
 
 <body>
-    <div class="game_container">
-
-
-        <style type="text/css">
-            table {
-                border-style: groove
-            }
-
-            td {
-                width: 80px;
-                height: 80px;
-                background-color: #FFEFD5
-            }
-        </style>
-        <table id='table1'>
-
-            <tr>
-                <td id="cell1" row=0 cell=0></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-
-        <button id="new_game" onclick=reloadPage()>Новая игра</button>
+    <div class="area-wrapper">
+        <div id="area">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+         </div>
+        <button class='buttons' id="new_game" onclick=reset()>Новая игра</button>
+        <h4 id="step">Ходит первый игрок</h4>
+        <h4 id="score">Счёт - 0:0</h4>
     </div>
-    <p id="result"></p>
-
     <script src="kek.js"></script>
 </body>
 
