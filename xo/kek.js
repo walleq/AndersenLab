@@ -1,11 +1,15 @@
 const area = document.getElementById("area");
-const areaInner = localStorage.getItem("area") || area.innerHTML;
+const areaInner = localStorage.getItem("field") || area.innerHTML;
 let move = +localStorage.getItem("move") || 0;
 let firstScore = +localStorage.getItem("firstScore") || 0;
 let secondScore = +localStorage.getItem("secondScore") || 0;
 const winner = document.getElementsByClassName("box");
 const step = document.getElementById("step");
 const score = document.getElementById("score");
+
+const temp = move % 2 === 0;
+
+step.innerText = temp ? "Ходит первый игрок" : "Ходит второй игрок";
 
 const setMove = newMove => {
   move = newMove;
@@ -43,21 +47,23 @@ const reset = () => {
   setSecondScore(0);
 };
 
+const play = (temp, event) => (event.target.innerHTML = temp ? "X" : "0");
+
+const whosMove = temp =>
+  (step.innerText = temp ? "Ходит первый игрок" : "Ходит второй игрок");
+
+const checkMove = move => move % 2 === 0;
+
 area.addEventListener("click", function(event) {
-  const temp =  move % 2 === 0;
+  if (event.target.innerHTML) {
+    return false;
+  }
 
-  event.target.innerHTML = temp ? "X" : "0"; // вынести в функцю
-  step.innerText = temp ? "Ходит первый игрок" : "Ходит второй игрок"; // вынести в функцю
-
+  play(checkMove(move), event);
   setMove(move + 1);
-
+  whosMove(checkMove(move));
   localStorage.setItem("field", area.innerHTML);
-
   checkWinner();
-});
-
-area.addEventListener("click", function(event) {
- alert('3123');
 });
 
 function checkWinner() {
@@ -90,6 +96,9 @@ function checkWinner() {
       alert("Победил второй игрок");
       setSecondScore(secondScore + 1);
       score.innerText = `Счёт - ${firstScore}:${secondScore}`;
+      clearFields();
+    } else if (Array.from(winner).every(item => item.innerHTML)) {
+      alert("Ничья!");
       clearFields();
     }
   });
