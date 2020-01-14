@@ -14,6 +14,22 @@
     flex-wrap: wrap;
 }
 
+#step {
+    background-color: white;
+    display: flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+#score {
+    background-color: white;
+    display: flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
 .box {
     width: 100px;
     height: 100px;
@@ -25,6 +41,17 @@
     align-items: center;
     font-size: 30px;
 }
-.buttons {
-    margin-top: 20px;
+
+#area div:hover {
+    background-color:pink
+}
+#new-game {
+    background-color: aqua;
+    display: flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    margin-left: 355px;
+    border: black;
+    border-radius: 10px;
 }
