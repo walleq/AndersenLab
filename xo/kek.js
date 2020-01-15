@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const areaWrapper = document.createElement('div');
 areaWrapper.className = "area-wrapper";
 document.body.before(areaWrapper);
@@ -14,9 +13,6 @@ while (i<=9) {
 }
 
 const area1 = document.getElementById("area");
-=======
-const area = document.getElementById("area");
->>>>>>> 64afdb31749af0889979873aab6aedfe2f1ad5b1
 const areaInner = localStorage.getItem("field") || area.innerHTML;
 let move = +localStorage.getItem("move") || 0;
 let firstScore = +localStorage.getItem("firstScore") || 0;
@@ -65,22 +61,14 @@ const reset = () => {
   setSecondScore(0);
 };
 
-<<<<<<< HEAD
 const play = (temp, event) => (event.target.innerHTML = temp ? "<img src='./x.png' width='16' height='16' class='plus'>" : "<img src='./o.png' width='16' height='16' class='minus'>");
-=======
-const play = (temp, event) => (event.target.innerHTML = temp ? "X" : "0");
->>>>>>> 64afdb31749af0889979873aab6aedfe2f1ad5b1
 
 const whosMove = temp =>
   (step.innerText = temp ? "Ходит первый игрок" : "Ходит второй игрок");
 
 const checkMove = move => move % 2 === 0;
 
-<<<<<<< HEAD
-area.addEventListener("click", function (event) {
-=======
 area.addEventListener("click", function(event) {
->>>>>>> 64afdb31749af0889979873aab6aedfe2f1ad5b1
   if (event.target.innerHTML) {
     return false;
   }
