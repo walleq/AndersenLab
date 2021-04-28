@@ -5,11 +5,12 @@ const area = document.createElement('div');
 area.id = "area";
 document.body.before(area);
 areaWrapper.appendChild(area);
-const div = document.createElement("div");
 let i = 0;
-while (i<=9) {
- area.appendChild(div);
- i++;
+while (i<=8) {
+  const div = document.createElement("div");
+  div.classList.add('box');
+  area.appendChild(div);
+  i++;
 }
 
 const area1 = document.getElementById("area");
@@ -117,3 +118,4 @@ function checkWinner() {
     }
   });
 }
+
